@@ -18,26 +18,27 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.18.1</version>
 			</plugin>
-			<plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-antrun-plugin</artifactId>
-        <version>1.3</version>
-        <executions>
-            <execution>
-              <phase>generate-sources</phase>
-                <configuration>
-                    <tasks>
-                        <exec dir="C:\Users\kumar.sourabh\Desktop\" executable="test.bat"  failonerror="true">
-						<arg line="arg1" />
-                        </exec>
-                    </tasks>
-                </configuration>
-                <goals>
-                    <goal>run</goal>
-                </goals>
-       </execution>
-   </executions>      
-</plugin>
+<plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.2.1</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <configuration>
+                            <executable>cmd</executable>
+                            <workingDirectory></workingDirectory>
+                            <arguments>
+                                <argument>/C</argument>
+                                <argument>"C:/Users/kumar.sourabh/Desktop/test.bat"</argument>
+                            </arguments>
+                        </configuration>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                    </execution>                            
+                </executions>
+             </plugin>
 		</plugins>		
 	</build>
 	<dependencies>
